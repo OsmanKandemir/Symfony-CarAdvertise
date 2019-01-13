@@ -1,0 +1,26 @@
+{% extends 'admin/user_header.html.twig' %}
+
+
+{% block content %}
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div style="width: 1110px;" class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            </li>
+            {{ include('users_cars/_form.html.twig') }}
+
+
+
+            <a href="/">Geri Dön</a>
+            {% endblock %}

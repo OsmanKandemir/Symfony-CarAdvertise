@@ -1,0 +1,81 @@
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/admin/category">Kategoriler</a>
+            </li>
+
+        </ol></div>
+    <div class="card-body">
+        <form method="post">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+
+                            <select name="admin_category[parent_id]" class="form-control-lg" style="width:230px;">
+                                
+
+
+                                    <option value="0">Ana Kategori</option>
+                                    {% for category in CategoryList %}
+                                        <option value="{{ category.id }}">{{ category.title }}</option>
+
+                                    {% endfor %}
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_category[title]" value="{{ admin_category.title }}" required="required" maxlength="40">                                <label for="firstName">Title</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_category[description]" value="{{ admin_category.description }}" required="required" maxlength="40">                                <label for="firstName">Description</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_category[keywords]" value="{{ admin_category.keywords }}" required="required" maxlength="40">                            <label for="firstName">Keywords</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_category[status]" value="{{ admin_category.status }}" required="required" maxlength="40">                            <label for="firstName">Status - Online/Offline</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-block col-sm-3" type="submit">Kaydet</button>
+
+
+
+
+    </div>
+
+
+

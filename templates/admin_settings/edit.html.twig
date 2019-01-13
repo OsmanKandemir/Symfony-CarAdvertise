@@ -1,0 +1,23 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}Admin-Category{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            </li>
+
+            {{ include('admin_settings/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+            {% endblock %}

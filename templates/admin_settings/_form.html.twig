@@ -1,0 +1,197 @@
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/admin/settings">Admin Settings</a>
+            </li>
+
+        </ol></div>
+    <div class="card-body">
+
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div style="width: 230px;" class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <form method="post">
+
+
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[title]" value="{{ admin_setting.title }}" required="required" maxlength="40">                                <label for="firstName">Title</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[description]" value="{{ admin_setting.description }}" required="required" maxlength="40">                                <label for="firstName">Description</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[keywords]" value="{{ admin_setting.keywords }}" required="required" maxlength="40">                                <label for="firstName">Keywords</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[fax]" value="{{ admin_setting.fax }}" required="required" maxlength="40">                                <label for="firstName">Fax</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[tel]" value="{{ admin_setting.tel }}" required="required" maxlength="40">                                <label for="firstName">Tel</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[email]" value="{{ admin_setting.email }}" required="required" maxlength="40">                                <label for="firstName">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[smtpserver]" value="{{ admin_setting.smtpserver }}" required="required" maxlength="40">                                <label for="firstName">SMTP Server</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[smtpmail]" value="{{ admin_setting.smtpmail }}" required="required" maxlength="40">                            <label for="firstName">SMTP E-mail</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[smtppasw]" value="{{ admin_setting.smtppasw }}" required="required" maxlength="40">                            <label for="firstName">SMTP Password</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="admin_settings[smtpport]" value="{{ admin_setting.smtpport }}" required="required" maxlength="40">                            <label for="firstName">SMTP Port</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Adres
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <textarea  id="address" name="admin_settings[address]" rows = "200" cols="200" >{{ admin_setting.address }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Hakkında
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <textarea  id="aboutus" name="admin_settings[aboutus]" rows = "200" cols="200" >{{ admin_setting.aboutus }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            İletişim
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <textarea  id="contract" name="admin_settings[contract]" rows = "200" cols="200" >{{ admin_setting.contract }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            Referans
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <textarea  id="referans" name="admin_settings[referans]" rows = "200" cols="200" >{{ admin_setting.referans }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-block col-sm-3" type="submit">Kaydet</button>
+
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#aboutus' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#contract' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#referans' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#address' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script>
+
+
+    </div>
+
+

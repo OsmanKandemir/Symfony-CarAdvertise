@@ -1,0 +1,16 @@
+
+<h1>
+    Slider İçin Resim Ekle
+</h1>
+
+    {{ include('user_image/_form.html.twig') }}
+
+
+{%  for image in imageList %}
+
+    <img src="/uploads/{{ image.image }}" height="400" width="400">
+
+    <a href="{{ path('admin_image_del1',{'id':image.id,'pid':image.car_id}) }}" onclick="return confirm('Silinsin mi ?')" >Sil</a>
+
+
+{% endfor %}

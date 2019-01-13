@@ -1,0 +1,62 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}Admin-Category{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            </li>
+
+
+
+        </ol></div>
+    <div class="box-body">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin_category.id }}</td>
+            </tr>
+            <tr>
+                <th>Parent_id</th>
+                <td>{{ admin_category.parentId }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ admin_category.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ admin_category.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ admin_category.description }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ admin_category.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <br>
+
+        <a class="btn btn-primary btn-block col-sm-2" href="{{ path('admin_category_index') }}">Geri Dön</a>
+
+    </div>
+    <!-- /.container-fluid -->
+
+
+
+    {% endblock %}

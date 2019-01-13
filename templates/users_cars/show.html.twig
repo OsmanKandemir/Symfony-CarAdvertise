@@ -1,0 +1,102 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}Admin-Category{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            </li>
+
+
+
+        </ol></div>
+    <div class="box-body">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin_car.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ admin_car.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ admin_car.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ admin_car.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ admin_car.type }}</td>
+            </tr>
+            <tr>
+                <th>Publisher_id</th>
+                <td>{{ admin_car.publisherId }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ admin_car.year }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ admin_car.amount }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ admin_car.price }}</td>
+            </tr>
+            <tr>
+                <th>Saleprice</th>
+                <td>{{ admin_car.saleprice }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ admin_car.detail }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ admin_car.image }}</td>
+            </tr>
+            <tr>
+                <th>Writer_id</th>
+                <td>{{ admin_car.writerId }}</td>
+            </tr>
+            <tr>
+                <th>Category_id</th>
+                <td>{{ admin_car.categoryId }}</td>
+            </tr>
+            <tr>
+                <th>User_id</th>
+                <td>{{ admin_car.userId }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ admin_car.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <a class="btn btn-primary btn-block col-sm-2" href="{{ path('admin_cars_index1') }}">Geri Dön</a>
+
+    </div>
+    <!-- /.container-fluid -->
+
+
+
+{% endblock %}

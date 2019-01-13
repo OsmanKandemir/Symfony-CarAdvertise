@@ -1,0 +1,77 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block title %}Üye Düzenleme{% endblock %}
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            </li>
+
+            <small><a href="{{ path ('users_new') }}" class="btn btn-block btn-outline-primary">Üye Ekleme</a> </small>
+
+
+        </ol></div>
+            <div class="box-body">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div style="width: 1110px;" class="alert alert-{{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Adı Soyadı</th>
+                            <th>Email</th>
+                            <th>Durum</th>
+                            <th>Adres</th>
+                            <th>Telefon</th>
+                            <th>Yetki</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+
+
+
+                        </tr>
+                        {% for user in users %}
+                        <tr>
+
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.isimsoyisim }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.status }}</td>
+                            <td>{{ user.address }}</td>
+                            <td>{{ user.telefon }}</td>
+                            <td>{% for item in user.roles %}
+                                    {{ item }}
+                                {% endfor %}
+                            </td>
+                            <td><a href="{{ path('users_edit',{'id':user.id}) }}" >Düzenle</a></td>
+                            <td><a href="{{ path('users_delete',{'id':user.id}) }}" onclick="return confirm('Silinsin mi ?')" >Sil</a></td>
+
+
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+
+
+                    </table>
+
+    </div>
+    <!-- /.container-fluid -->
+
+    {% endblock %}

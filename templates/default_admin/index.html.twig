@@ -1,0 +1,33 @@
+{% extends '/admin/admin_header.html.twig' %}
+
+{% block title %}{{ controller_name }}!{% endblock %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/admin">Dashboard</a>
+            </li>
+
+        </ol>
+
+        <!-- Page Content -->
+        <h1>Admin Panel - Hoşgeldiniz</h1>
+        <hr>
+
+
+    </div>
+    <!-- /.container-fluid -->
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends '/header_base.html.twig' %}
+
+
+
+
+
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block descriptions %} {{ data[0].description }} {% endblock %}
+
+
+
+{% block kirala %}{% include '/kirala.html.twig' %}{% endblock %}
+{% block sec %}{% include '/select_car.html.twig' %}{% endblock %}
+{% block footer %}{% include '/footer.html.twig' %}{% endblock %}
+
+
+{% block body %}{% endblock %}
+

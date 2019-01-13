@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdminSettings{% endblock %}
+
+{% block body %}
+    <h1>AdminSettings</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ admin_setting.id }}</td>
+            </tr>
+            <tr>
+                <th>S_id</th>
+                <td>{{ admin_setting.sId }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ admin_setting.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ admin_setting.description }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ admin_setting.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ admin_setting.address }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ admin_setting.fax }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ admin_setting.tel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ admin_setting.email }}</td>
+            </tr>
+            <tr>
+                <th>Smtpserver</th>
+                <td>{{ admin_setting.smtpserver }}</td>
+            </tr>
+            <tr>
+                <th>Smtpmail</th>
+                <td>{{ admin_setting.smtpmail }}</td>
+            </tr>
+            <tr>
+                <th>Smtppasw</th>
+                <td>{{ admin_setting.smtppasw }}</td>
+            </tr>
+            <tr>
+                <th>Smtpport</th>
+                <td>{{ admin_setting.smtpport }}</td>
+            </tr>
+            <tr>
+                <th>Aboutus</th>
+                <td>{{ admin_setting.aboutus }}</td>
+            </tr>
+            <tr>
+                <th>Contract</th>
+                <td>{{ admin_setting.contract }}</td>
+            </tr>
+            <tr>
+                <th>Referans</th>
+                <td>{{ admin_setting.referans }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_settings_index') }}">back to list</a>
+
+    <a href="{{ path('admin_settings_edit', {'id': admin_setting.id}) }}">edit</a>
+
+    {{ include('admin_settings/_delete_form.html.twig') }}
+{% endblock %}

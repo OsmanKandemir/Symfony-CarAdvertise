@@ -1,0 +1,175 @@
+<style>
+    ul#menu-v, #menu-v ul
+    {
+        width:200px; /* Main Menu width */
+        border:1px solid rgba(190,190,190,0.3);
+        list-style:none; margin:0; padding:0;
+        z-index:9;
+    }
+
+    #menu-v li
+    {
+        margin:0;padding:0;
+        position:relative;
+        background-color:#DDDDDD; /*fallback color*/
+        background-color:rgba(0,0,0,0.5);
+        transition:background 0.5s;
+    }
+    #menu-v li:hover
+    {
+        background-color:rgba(0,0,0,0.9);
+    }
+
+    #menu-v a
+    {
+
+        border-top:1px solid rgba(190,190,190,0.3);
+        display:block;
+        color:#EEEEEE;
+        text-decoration:none;
+        line-height:30px;
+        padding-left:22px;
+        position:relative;
+    }
+
+    #menu-v li:first-child a
+    {
+        border-top:0;
+    }
+
+    #menu-v a.arrow::after{
+        content:'';
+        position:absolute;
+        display:inline;
+        top:50%;
+        margin-top:-4px;
+        right:8px;
+        border-width:4px;
+        border-style:solid;
+        border-color:transparent transparent transparent white;
+        transition:border-color 0.5s;
+    }
+
+    #menu-v li a.arrow:hover::after
+    {
+        border-color:transparent transparent transparent #CCCCCC;
+    }
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #menu-v li ul
+    {
+        min-width:180px; /* Sub level menu min width */
+        position:absolute;
+        display:none;
+        left:90%;
+        top:50%; transform:translateY(-50%);
+    }
+
+    #menu-v li:hover > ul
+    {
+        display:block;
+    }
+
+</style>
+
+
+
+<!--== Choose Car Area Start ==-->
+<section id="choose-car" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Section Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>ARABANI SEÇ</h2>
+                    <span class="title-line"><i class="fa fa-car"></i></span>
+                    <p>En Üst Sınıf</p>
+                </div>
+            </div>
+            <!-- Section Title End -->
+        </div>
+
+        <div class="row">
+            <!-- Choose Area Content Start -->
+            <div class="col-lg-12">
+                <div class="choose-content-wrap">
+                    <!-- Choose Area Tab Menu -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+
+
+
+
+
+                        <!-- BURAYA İKİNCİ PLAN DEVREYE GİRER   % for cat in cats %}
+                                    { cat|raw }}
+                                % endfor %} -->
+
+
+
+
+
+
+
+                    </ul>
+                    <!-- Choose Area Tab Menu -->
+
+                    <!-- Choose Area Tab content -->
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Popular Cars Tab Start -->
+                        <div class="tab-pane fade show active" id="popular_cars" role="tabpanel" aria-labelledby="home-tab">
+                            <!-- Popular Cars Content Wrapper Start -->
+                            <div class="popular-cars-wrap">
+                                <!-- Filtering Menu -->
+                                <div class="popucar-menu text-center">
+                                    <a href="#" data-filter="*">all</a>
+                                    <!--<a href="#" data-filter=".con">BMW</a>
+                                    <a href="#" data-filter=".hat">MERCEDES</a>
+                                    <a href="#" data-filter=".mpv">VOLVO</a>
+                                    <a href="#" data-filter=".sedan">AUDI</a>
+                                    <a href="#" data-filter=".suv">FIAT</a>-->
+                                </div>
+
+                                <!-- Filtering Menu -->
+                                <div class="row popular-car-gird">
+                                <!-- PopularCars Tab Content Start -->
+                                {% for bilgiler in  slider%}
+                                <div class="col-lg-4 col-md-6 hat sedan">
+                                    <div class="single-popular-car">
+                                        <div class="p-car-thumbnails">
+                                            <a class="car-hover" href="{{ asset('uploads') }}/{{ bilgiler.image }}">
+                                                <img style="height: 200px;width: 200%;" src="{{ asset('uploads') }}/{{ bilgiler.image }}" alt="JSOFT">
+                                            </a>
+                                        </div>
+
+                                        <div class="p-car-content">
+                                            <h3>
+                                                <a href="#">{{ bilgiler.title }}</a>
+                                                <span class="price"><i class="fa fa-tag"></i> {{ bilgiler.saleprice }}</span>
+
+                                            </h3>
+
+                                            <h5>{{ bilgiler.description}}</h5>
+
+                                            <div class="p-car-feature">
+                                                <a href="#">{{ bilgiler.keywords }}</a>
+
+
+                                            </div>
+                                            <br><a href="detail2/{{ bilgiler.id }}" class="rent-btn">İncele</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+                        <!-- Office Map Tab -->
+                    </div>
+                    <!-- Choose Area Tab content -->
+                </div>
+            </div>
+            <!-- Choose Area Content End -->
+        </div>
+    </div>
+</section>
+<!--== Choose Car Area End ==-->

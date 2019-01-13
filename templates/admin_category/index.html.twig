@@ -1,0 +1,79 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}AdminCategory index{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" >
+            <li class="breadcrumb-item">
+            </li>
+
+            <small><a href="{{ path('admin_category_new') }}" class="btn btn-block btn-outline-primary">Kategori Ekleme</a> </small>
+
+
+        </ol></div>
+    <div class="box-body">
+        {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div style="width: 1110px;" class="alert alert-{{ label }}">
+                {{ flash }}
+            </div>
+        {% endfor %}
+        {% endfor %}
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Parent_id</th>
+                <th>Title</th>
+                <th>Keywords</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Göster</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+
+
+
+            </tr>
+            {% for admin_category in admin_categories %}
+                <tr>
+                    <td>{{ admin_category.id }}</td>
+                    <td>{{ admin_category.parentId }}</td>
+                    <td>{{ admin_category.title }}</td>
+                    <td>{{ admin_category.keywords }}</td>
+                    <td>{{ admin_category.description }}</td>
+                    <td>{{ admin_category.status }}</td>
+
+                    <td>
+                        <a class="btn btn-primary btn-block col-sm-9" href="{{ path('admin_category_show', {'id': admin_category.id}) }}">Göster</a>
+                    </td><td><a class="btn btn-primary btn-block col-sm-9" href="{{ path('admin_category_edit', {'id': admin_category.id,'pid':admin_category.parent_id}) }}">Düzenle</a>
+                    </td>
+                    <td> <a>     {{ include('admin_category/_delete_form.html.twig') }}</a></td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+
+        </table>
+
+    </div>
+    <!-- /.container-fluid -->
+
+
+
+{% endblock %}

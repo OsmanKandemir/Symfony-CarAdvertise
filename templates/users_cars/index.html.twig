@@ -1,0 +1,115 @@
+{% extends 'admin/user_header.html.twig' %}
+
+
+
+{% block content %}
+
+<body style="background-color: linen" >
+
+</body>
+
+<div id="content-wrapper" >
+
+    <div class="container-fluid" >
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" >
+            <li class="breadcrumb-item">
+            </li>
+
+
+
+        </ol></div>
+    <div class="box-body" >
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div style="width: 1110px;" class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+
+
+                <th>Title</th>
+                <th>Price</th>
+                <th>Detail</th>
+                <th>Image</th>
+                <th>Galeri</th>
+                <th>Status</th>
+                <th>Düzenle</th>
+
+            </tr>
+        </thead>
+            <tbody>
+        {% for admin_car in admin_cars %}
+        {% if admin_car.status is null %}
+
+
+                <td>{{ admin_car.title }}</td>
+                <td>{{ admin_car.price }}</td>
+                <td>{{ admin_car.detail|raw }}</td>
+
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_cars_iedit1', {'id': admin_car.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,resizable=no,width=1000,heigth=500')">
+                    {% if admin_car.image != null %}
+                        <img src="/uploads/{{ admin_car.image }}" height="80" width="80">
+                    {% else %}
+                        Add Image
+                        {{ admin_car.image }}
+
+
+                    {% endif %}
+                    </a>
+
+                </td>
+
+
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_image_new1', {'pid': admin_car.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,resizable=no,width=1000,heigth=500')">
+                        <img src="/uploads/gallery.png" height="80" width="80"></td></a>
+
+
+                <td>{{ admin_car.status }}</td>
+
+              <td>
+                    <a>     {{ include('users_cars/_delete_form.html.twig') }}</a>
+                    <a class="btn btn-primary btn-block col-sm-14" href="{{ path('admin_cars_edit1', {'id': admin_car.id}) }}">Düzenle</a>
+                </td>
+            {% else %}
+
+
+                <td>{{ admin_car.title }}</td>
+                <td>{{ admin_car.price }}</td>
+                <td>{{ admin_car.detail|raw }}</td>
+
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+
+
+
+                <td>{{ admin_car.status }}<a>- Aracınız Yayinlanmıştır</a></td>
+
+
+
+
+
+
+            {% endif %}
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+
+
+{% endblock %}

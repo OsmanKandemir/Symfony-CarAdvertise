@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdminImage index{% endblock %}
+
+{% block body %}
+    <h1>AdminImage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Car_id</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_image in admin_images %}
+            <tr>
+                <td>{{ admin_image.id }}</td>
+                <td>{{ admin_image.carId }}</td>
+                <td>{{ admin_image.image }}</td>
+                <td>
+                    <a href="{{ path('admin_image_show', {'id': admin_image.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

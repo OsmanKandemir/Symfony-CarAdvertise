@@ -1,0 +1,379 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <title>Cardoor - Car Rental HTML Template</title>
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!--=== Slicknav CSS ===-->
+    <link href="assets/css/plugins/slicknav.min.css" rel="stylesheet">
+    <!--=== Magnific Popup CSS ===-->
+    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet">
+    <!--=== Owl Carousel CSS ===-->
+    <link href="assets/css/plugins/owl.carousel.min.css" rel="stylesheet">
+    <!--=== Gijgo CSS ===-->
+    <link href="assets/css/plugins/gijgo.css" rel="stylesheet">
+    <!--=== FontAwesome CSS ===-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!--=== Theme Reset CSS ===-->
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="style.css" rel="stylesheet">
+    <!--=== Responsive CSS ===-->
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="loader-active">
+
+<!--== Preloader Area Start ==-->
+<div class="preloader">
+    <div class="preloader-spinner">
+        <div class="loader-content">
+            <img src="assets/img/preloader.gif" alt="JSOFT">
+        </div>
+    </div>
+</div>
+<!--== Preloader Area End ==-->
+
+<!--== Header Area Start ==-->
+<header id="header-area" class="fixed-top">
+
+
+    <!--== Header Bottom Start ==-->
+    <div id="header-bottom">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a href="/" class="logo">
+                        <img src="assets/img/logo.png" alt="JSOFT">
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Bottom End ==-->
+</header>
+<!--== Header Area End ==-->
+
+<!--== Page Title Area Start ==-->
+<section id="page-title-area" class="section-padding overlay">
+    <div class="container">
+        <div class="row">
+            <!-- Page Title Start -->
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>Üye Ol</h2>
+                    {% if is_granted('ROLE_USER') %}
+        Zaten Üyesiniz<br>
+        Email : {{ app.user.email }}<br>
+        Roles : {% for item in app.user.roles %}
+                        {{ item }}
+                 {% endfor %}
+      {% else %}
+
+        <form method="post">
+
+
+                <div class="container">
+
+
+
+                    <h2>  {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div style="width: 1110px;" class="alert alert-{{ label }}">
+
+                            {{ flash }}
+                            <a style="color: #34ce57" href='/login'>Giriş Yap</a>
+                        </div>
+                    {% endfor %}
+                    {% endfor %}</h2>
+                    <p></p>
+
+
+                    <hr>
+
+                    <input type="hidden" name="users[roles]" value="ROLE_USER">
+                    <label for="email"><b>İsim Soyisim</b></label>
+                                <input type="text" id="users_isimsoyisim" name="users[isimsoyisim]" required="required" maxlength="30">
+
+                     <label for="email"><b>Email</b></label>
+                                <input type="text" id="users_email" name="users[email]" required="required" maxlength="40">
+
+
+                    <label for="psw"><b>Password</b></label>
+                            <input type="text" id="users_password" name="users[password]" required="required" maxlength="40">
+
+                     <label for="psw-repeat"><b>Telefon</b></label>
+                            <input type="text" id="users_telefon" name="users[telefon]" required="required" maxlength="40">
+
+                      <label for="psw-repeat"><b>Adress</b></label>
+
+                            <input type="text" id="users_address" name="users[address]" required="required" maxlength="40">
+                        <label for="city"><b>Şehir</b></label><br>
+                                   <select id="users_city"  name="users[city]">
+                                                        <option>------</option>
+                                                        <option>Adana</option>
+                                                        <option>Adıyaman</option>
+                                                        <option>Afyon</option>
+                                                        <option>Ağrı</option>
+                                                        <option>Amasya</option>
+                                                        <option>Ankara</option>
+                                                        <option>Antalya</option>
+                                                        <option>Artvin</option>
+                                                        <option>Aydın</option>
+                                                        <option>Balıkesir</option>
+                                                        <option>Bilecik</option>
+                                                        <option>Bingöl</option>
+                                                        <option>Bitlis</option>
+                                                        <option>Bolu</option>
+                                                        <option>Burdur</option>
+                                                        <option>Bursa</option>
+                                                        <option>Çanakkale</option>
+                                                        <option>Çankırı</option>
+                                                        <option>Çorum</option>
+                                                        <option>Denizli</option>
+                                                        <option>Diyarbakır</option>
+                                                        <option>Edirne</option>
+                                                        <option>Elazığ</option>
+                                                        <option>Erzincan</option>
+                                                        <option>Erzurum</option>
+                                                        <option>Eskişehir</option>
+                                                        <option>Gaziantep</option>
+                                                        <option>Giresun</option>
+                                                        <option>Gümüşhane</option>
+                                                        <option>Hakkari</option>
+                                                        <option>Hatay</option>
+                                                        <option>Isparta</option>
+                                                        <option>Mersin</option>
+                                                        <option>İstanbul</option>
+                                                        <option>İzmir</option>
+                                                        <option>Kars</option>
+                                                        <option>Kastamonu</option>
+                                                        <option>Kayseri</option>
+                                                        <option>Kırklareli</option>
+                                                        <option>Kırşehir</option>
+                                                        <option>Kocaeli</option>
+                                                        <option>Konya</option>
+                                                        <option>Kütahya</option>
+                                                        <option>Malatya</option>
+                                                        <option>Manisa</option>
+                                                        <option>K.maraş</option>
+                                                        <option>Mardin</option>
+                                                        <option>Muğla</option>
+                                                        <option>Muş</option>
+                                                        <option>Nevşehir</option>
+                                                        <option>Niğde</option>
+                                                        <option>Ordu</option>
+                                                        <option>Rize</option>
+                                                        <option>Sakarya</option>
+                                                        <option>Samsun</option>
+                                                        <option>Siirt</option>
+                                                        <option>Sinop</option>
+                                                        <option>Sivas</option>
+                                                        <option>Tekirdağ</option>
+                                                        <option>Tokat</option>
+                                                        <option>Trabzon</option>
+                                                        <option>Tunceli</option>
+                                                        <option>Şanlıurfa</option>
+                                                        <option>Uşak</option>
+                                                        <option>Van</option>
+                                                        <option>Yozgat</option>
+                                                        <option>Zonguldak</option>
+                                                        <option>Aksaray</option>
+                                                        <option>Bayburt</option>
+                                                        <option>Karaman</option>
+                                                        <option>Kırıkkale</option>
+                                                        <option>Batman</option>
+                                                        <option>Şırnak</option>
+                                                        <option>Bartın</option>
+                                                        <option>Ardahan</option>
+                                                        <option>Iğdır</option>
+                                                        <option>Yalova</option>
+                                                        <option>Karabük</option>
+                                                        <option>Kilis</option>
+                                                        <option>Osmaniye</option>
+                                                        <option>Düzce</option>
+                                                       </select><br>
+                    <hr>
+
+                     <input type="hidden" name="token" value="{{ csrf_token('user-form') }}">
+                    <button type="submit" class="registerbtn">Register</button>
+                  </div>
+
+
+
+            </form>
+
+
+            </div>
+            <span class="title-line"><i class="fa fa-car"></i></span>
+            {% endif %}
+
+                    <p></p>
+                </div>
+            </div>
+            <!-- Page Title End -->
+        </div>
+    </div>
+</section>
+<!--== Page Title Area End ==-->
+    {#  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+         <p>Email: {{ app.user.email }}</p>
+
+
+     {% else %}
+         Oturum Açilmadi
+     {% endif %} #}
+
+     <style>
+ body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+     </style>
+
+
+
+<!--== Footer Area Start ==-->
+    <section id="footer-area">
+        <!-- Footer Widget Start -->
+        <div class="footer-widget-area">
+            <div class="container">
+
+                    </div>
+                    <!-- Single Footer Widget End -->
+
+                    <!-- Single Footer Widget Start -->
+
+                    <!-- Single Footer Widget End -->
+
+                    <!-- Single Footer Widget Start -->
+
+                    <!-- Single Footer Widget End -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer Widget End -->
+
+        <!-- Footer Bottom Start -->
+
+        <!-- Footer Bottom End -->
+    </section>
+    <!--== Footer Area End ==-->
+
+    <!--== Scroll Top Area Start ==-->
+    <div class="scroll-top">
+        <img src="assets/img/scroll-top.png" alt="JSOFT">
+    </div>
+    <!--== Scroll Top Area End ==-->
+
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="assets/js/jquery-migrate.min.js"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="assets/js/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--=== Gijgo Min Js ===-->
+    <script src="assets/js/plugins/gijgo.js"></script>
+    <!--=== Vegas Min Js ===-->
+    <script src="assets/js/plugins/vegas.min.js"></script>
+    <!--=== Isotope Min Js ===-->
+    <script src="assets/js/plugins/isotope.min.js"></script>
+    <!--=== Owl Caousel Min Js ===-->
+    <script src="assets/js/plugins/owl.carousel.min.js"></script>
+    <!--=== Waypoint Min Js ===-->
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <!--=== CounTotop Min Js ===-->
+    <script src="assets/js/plugins/counterup.min.js"></script>
+    <!--=== YtPlayer Min Js ===-->
+    <script src="assets/js/plugins/mb.YTPlayer.js"></script>
+    <!--=== Magnific Popup Min Js ===-->
+    <script src="assets/js/plugins/magnific-popup.min.js"></script>
+    <!--=== Slicknav Min Js ===-->
+    <script src="assets/js/plugins/slicknav.min.js"></script>
+
+    <!--=== Mian Js ===-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}

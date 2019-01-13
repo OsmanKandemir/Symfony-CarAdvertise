@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdminSettings index{% endblock %}
+
+{% block body %}
+    <h1>AdminSettings index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Keywords</th>
+                <th>Address</th>
+                <th>Fax</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Smtpserver</th>
+                <th>Smtpmail</th>
+                <th>Smtppasw</th>
+                <th>Smtpport</th>
+                <th>Aboutus</th>
+                <th>Contract</th>
+                <th>Referans</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_setting in admin_settings %}
+            <tr>
+                <td>{{ admin_setting.id }}</td>
+                <td>{{ admin_setting.title }}</td>
+                <td>{{ admin_setting.description }}</td>
+                <td>{{ admin_setting.keywords }}</td>
+                <td>{{ admin_setting.address }}</td>
+                <td>{{ admin_setting.fax }}</td>
+                <td>{{ admin_setting.tel }}</td>
+                <td>{{ admin_setting.email }}</td>
+                <td>{{ admin_setting.smtpserver }}</td>
+                <td>{{ admin_setting.smtpmail }}</td>
+                <td>{{ admin_setting.smtppasw }}</td>
+                <td>{{ admin_setting.smtpport }}</td>
+                <td>{{ admin_setting.aboutus }}</td>
+                <td>{{ admin_setting.contract }}</td>
+                <td>{{ admin_setting.referans }}</td>
+
+                <td>
+                    <a href="{{ path('admin_settings_show', {'id': admin_setting.id}) }}">show</a>
+                    <a href="{{ path('admin_settings_edit', {'id': admin_setting.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_settings_new') }}">Create new</a>
+{% endblock %}

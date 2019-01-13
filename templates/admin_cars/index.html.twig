@@ -1,0 +1,99 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}Product-List index{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" >
+            <li class="breadcrumb-item">
+            </li>
+
+            <small><a href="{{ path('admin_cars_new') }}" class="btn btn-block btn-outline-primary">Araç Ekleme</a> </small>
+
+
+        </ol></div>
+    <div class="box-body">
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div style="width: 1110px;" class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+
+
+                <th>Title</th>
+                <th>Price</th>
+                <th>SalePrice</th>
+                <th>Detail</th>
+                <th>Image</th>
+                <th>Galeri</th>
+
+
+                <th>Status</th>
+                <th>Göster</th>
+                <th>Sil/Düzenle</th>
+            </tr>
+        </thead>
+            <tbody>
+        {% for admin_car in admin_cars %}
+
+            <tr style="line-height: 1px;">
+
+                <td>{{ admin_car.title }}</td>
+                <td>{{ admin_car.price }}</td>
+                <td>{{ admin_car.saleprice }}</td>
+                <td>{{ admin_car.detail|raw }}</td>
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_cars_iedit', {'id': admin_car.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,resizable=no,width=1000,heigth=500')">
+                    {% if admin_car.image != null %}
+                        <img src="/uploads/{{ admin_car.image }}" height="80" width="80">
+                    {% else %}
+                        Add Image
+                        {{ admin_car.image }}
+
+
+                    {% endif %}
+                    </a>
+
+                </td>
+
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_image_new', {'pid': admin_car.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,resizable=no,width=1000,heigth=500')">
+                        <img src="/uploads/gallery.png" height="80" width="80"></td></a>
+                <td>{{ admin_car.status }}</td>
+
+                <td>
+                    <a class="btn btn-primary btn-block col-sm-14" href="{{ path('admin_cars_show', {'id': admin_car.id}) }}">Göster</a>
+                </td><td>
+                    <a>     {{ include('admin_cars/_delete_form.html.twig') }}</a>
+                    <a class="btn btn-primary btn-block col-sm-14" href="{{ path('admin_cars_edit', {'id': admin_car.id}) }}">Düzenle</a>
+                </td>
+
+
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+
+
+
+
+{% endblock %}

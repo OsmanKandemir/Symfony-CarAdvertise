@@ -1,0 +1,140 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+
+{% block title %}Üye Ekleme{% endblock %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/admin/">Admin Panel</a>
+            </li>
+
+        </ol></div>
+    <div class="card-body">
+        <form method="post">
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="users_isimsoyisim" name="users[isimsoyisim]" required="required" maxlength="30">                                <label for="firstName">Adı Soyadi</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-label-group">
+                                <input type="text" id="users_email" name="users[email]" required="required" maxlength="40">                                <label for="firstName">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" id="users_password" name="users[password]" required="required" maxlength="40">                            <label for="firstName">Password</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" id="users_telefon" name="users[telefon]" required="required" maxlength="40">                            <label for="firstName">Telefon</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" id="users_city" name="users[city]" required="required" maxlength="40">                            <label for="firstName">City</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" id="users_address" name="users[address]" required="required" maxlength="40">                            <label for="firstName">Adres</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" id="users_name" name="users[name]" required="required" maxlength="40">                            <label for="firstName">İkinci İsim</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-10">
+                        <label for="firstName"><select id="users_roles" name="users[roles]" class="form-control">
+
+                                <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                                <option value='ROLE_USER'>ROLE_USER</option>
+                            </select></label>
+
+                        <div class="form-label-group">
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-10">
+                        <label for="firstName"><select id="users_status" name="users[status]" class="form-control">
+
+                                <option>Online</option>
+                                <option>Offline</option>
+                            </select></label>
+
+                        <div class="form-label-group">
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-block col-sm-3" type="submit">Kaydet</button>
+
+
+
+
+            </div>
+
+    {% endblock %}

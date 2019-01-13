@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdminDeneme index{% endblock %}
+
+{% block body %}
+    <h1>AdminDeneme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Deneme</th>
+                <th>Id_x</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_deneme in admin_denemes %}
+            <tr>
+                <td>{{ admin_deneme.id }}</td>
+                <td>{{ admin_deneme.deneme }}</td>
+                <td>{{ admin_deneme.idX }}</td>
+                <td>
+                    <a href="{{ path('admin_deneme_show', {'id': admin_deneme.id}) }}">show</a>
+                    <a href="{{ path('admin_deneme_edit', {'id': admin_deneme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_deneme_new') }}">Create new</a>
+{% endblock %}

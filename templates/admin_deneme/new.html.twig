@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AdminDeneme{% endblock %}
+
+{% block body %}
+    <h1>Create new AdminDeneme</h1>
+
+    {{ include('admin_deneme/_form.html.twig') }}
+
+    <a href="{{ path('admin_deneme_index') }}">back to list</a>
+{% endblock %}

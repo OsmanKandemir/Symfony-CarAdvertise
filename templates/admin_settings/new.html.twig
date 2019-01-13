@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AdminSettings{% endblock %}
+
+{% block body %}
+    <h1>Create new AdminSettings</h1>
+
+    {{ include('admin_settings/_form.html.twig') }}
+
+    <a href="{{ path('admin_settings_index') }}">back to list</a>
+{% endblock %}

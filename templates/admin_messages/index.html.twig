@@ -1,0 +1,60 @@
+{% extends 'admin/admin_header.html.twig' %}
+
+
+{% block admin_sidebar %}{% include 'admin/admin_sidebar.html.twig' %}{% endblock %}
+{% block admin_footer %}{% include 'admin/admin_footer.html.twig' %}{% endblock %}
+{% block title %}AdminCategory index{% endblock %}
+
+{% block content %}
+
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb" >
+            <li class="breadcrumb-item">
+            </li>
+
+
+        </ol></div>
+    <div class="box-body">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Comment</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin_message in admin_messages %}
+            <tr>
+                <td>{{ admin_message.id }}</td>
+                <td>{{ admin_message.name }}</td>
+                <td>{{ admin_message.email }}</td>
+                <td>{{ admin_message.website }}</td>
+                <td>{{ admin_message.subject }}</td>
+                <td>{{ admin_message.message }}</td>
+                <td>{{ admin_message.comment }}</td>
+                <td>{{ admin_message.status }}</td>
+                <td>
+                    <a href="{{ path('admin_messages_show', {'id': admin_message.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
